@@ -1,5 +1,6 @@
 {
   "name": "t2-template",
+  "author": "Terry Tan",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,16 +10,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.0",
+    "@heroicons/react": "^2.0.11",
+    "axios": "^0.27.2",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hot-toast": "^2.3.0",
+    "swr": "^1.3.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "@types/node": "18.7.23",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
+    "autoprefixer": "^10.4.8",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8",
     "typescript": "4.8.4"
   }
 }

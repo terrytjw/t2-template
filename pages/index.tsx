@@ -10,7 +10,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>Home page works!</main>
+      <main className="flex justify-center items-center h-screen tracking-widest">
+        <h1 className="text-2xl font-bold">Let's build. 🚀</h1>
+      </main>
     </div>
   );
 };

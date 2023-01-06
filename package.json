@@ -10,14 +10,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^1.0.0-beta.5",
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
     "axios": "^1.2.1",
+    "daisyui": "^2.46.1",
     "date-fns": "^2.29.3",
+    "framer-motion": "^8.1.9",
+    "lodash": "^4.17.21",
     "next": "^13.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.41.5",
     "react-hot-toast": "^2.4.0",
+    "react-icons": "^4.7.1",
     "swr": "^2.0.0"
   },
   "devDependencies": {

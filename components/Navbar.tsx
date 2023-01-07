@@ -12,9 +12,9 @@ const Navbar = () => {
       <div className="flex-none">
         <button
           className="btn btn-sm mx-4 hover:bg-gray-500 hover:border-gray-500"
-          onClick={() => alert("Write post.")}
+          onClick={() => alert("Random Button.")}
         >
-          Write post
+          Random Button
         </button>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

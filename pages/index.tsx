@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import CustomLink from "../components/CustomLink";
+import { FaGithub } from "react-icons/fa";
 
 const HomePage: NextPage = () => {
   return (
@@ -10,8 +12,15 @@ const HomePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex justify-center items-center h-screen tracking-widest">
-        <h1 className="text-2xl font-bold">Let's build. 🚀</h1>
+      <main className="flex flex-col justify-center items-center h-screen tracking-widest">
+        <h1 className="text-2xl font-bold animate-pulse">Let's build. 🚀</h1>
+        <CustomLink
+          href="https://github.com/terrytjw/t2-template"
+          className="flex gap-4 p-8"
+        >
+          <FaGithub />
+          Github repo
+        </CustomLink>
       </main>
     </div>
   );

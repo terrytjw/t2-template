@@ -1,5 +1,5 @@
 import { Switch } from "@headlessui/react";
-import { FaCheck, FaTimes } from "react-icons/fa";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 type ToggleProps = {
   isChecked: boolean;
@@ -8,13 +8,7 @@ type ToggleProps = {
 const Toggle = ({ isChecked, setIsChecked }: ToggleProps) => {
   return (
     <div className="flex space-x-2 items-center">
-      <div>
-        {isChecked ? (
-          <FaCheck className="text-green-700" />
-        ) : (
-          <FaTimes className="text-red-700" />
-        )}
-      </div>
+      <div>{isChecked ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}</div>
       <Switch
         checked={isChecked}
         onChange={setIsChecked}

@@ -3,7 +3,6 @@ import Accordion from "../components/Accordion";
 import Modal from "../components/Modal";
 import TabGroup from "../components/TabGroup";
 import Toggle from "../components/Toggle";
-import DarkModeToggle from "../components/Toggle/DarkModeToggle";
 
 const PlaygroundPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -85,12 +84,15 @@ const PlaygroundPage = () => {
         </div>
         <div className="flex flex-col justify-center items-center gap-4 p-8">
           <Toggle isChecked={showWord} setIsChecked={setShowWord} />
-          <div className="p-2 inline-block bg-orange-200 h-10 w-40 text-center font-semibold rounded">
-            <p className="opacity-70">{showWord ? "Hello World" : "?????"}</p>
+
+          <div className="inline-block h-10">
+            <p className="">
+              Word of the day:{" "}
+              <span className="inline-block p-2 w-32 bg-orange-200 text-center font-bold text-black/80 text- rounded">
+                {showWord ? "Hello World" : "?????"}
+              </span>
+            </p>
           </div>
-        </div>
-        <div className="flex justify-center gap-x-2 p-8">
-          <DarkModeToggle /> (Dark mode toggle)
         </div>
       </section>
     </main>

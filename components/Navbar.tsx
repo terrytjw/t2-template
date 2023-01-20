@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import CustomLink from "./CustomLink";
+import DarkModeToggle from "./Toggle/DarkModeToggle";
 
 const Navbar = () => {
   return (
@@ -11,9 +12,10 @@ const Navbar = () => {
         </CustomLink>
       </div>
       <div className="flex-none">
+        <DarkModeToggle />
         <Link
           href="/playground"
-          className="btn btn-sm mx-4 hover:bg-gray-500 hover:border-gray-500"
+          className="btn btn-sm btn-outline mx-4 hover:bg-gray-500 hover:border-gray-500"
         >
           Playground
         </Link>

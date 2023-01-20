@@ -1,5 +1,7 @@
+import Link from "next/link";
 import React from "react";
 import CustomLink from "./CustomLink";
+import DarkModeToggle from "./Toggle/DarkModeToggle";
 
 const Navbar = () => {
   return (
@@ -10,12 +12,13 @@ const Navbar = () => {
         </CustomLink>
       </div>
       <div className="flex-none">
-        <button
-          className="btn btn-sm mx-4 hover:bg-gray-500 hover:border-gray-500"
-          onClick={() => alert("Random Button.")}
+        <DarkModeToggle />
+        <Link
+          href="/playground"
+          className="btn btn-sm btn-outline mx-4 hover:bg-gray-500 hover:border-gray-500"
         >
-          Random Button
-        </button>
+          Playground
+        </Link>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">

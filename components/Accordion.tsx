@@ -12,11 +12,11 @@ const Accordion = ({ label, children }: AccordionProps) => {
 
   return (
     <div className="w-full p-0.5">
-      <div className="mx-auto w-full max-w-md rounded-2xl bg-gray-100 p-0.5">
+      <div className="mx-auto w-full max-w-md rounded-2xl p-0.5">
         <Disclosure>
           {({ open }) => (
             <div ref={parent}>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 px-4 py-2 text-left text-sm font-medium text-teal-900 hover:bg-teal-200 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75">
+              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 dark:bg-teal-200 px-4 py-2 text-left text-sm font-medium text-teal-900 hover:bg-teal-200 dark:hover:bg-teal-100 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 transition-all">
                 <span>{label}</span>
                 <ChevronUpIcon
                   className={`${
@@ -24,7 +24,7 @@ const Accordion = ({ label, children }: AccordionProps) => {
                   } h-5 w-5 text-teal-500`}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500 dark:text-gray-300 bg-gray-100 dark:bg-white/10 rounded">
                 {children}
               </Disclosure.Panel>
             </div>

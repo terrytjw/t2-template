@@ -24,9 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
+      <div className={theme}>
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </div>
     </ThemeContext.Provider>
   );
 }

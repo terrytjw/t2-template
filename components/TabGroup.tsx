@@ -74,7 +74,8 @@ const TabGroup = () => {
                   "focus:outline-none",
                   selected
                     ? "bg-white shadow"
-                    : "text-blue-900/40 hover:bg-white/[0.12] hover:text-white"
+                    : "text-blue-900/40 dark:text-blue-500 hover:bg-white/[0.12] hover:text-white",
+                  "transition-all"
                 )
               }
             >
@@ -107,7 +108,7 @@ const TabGroup = () => {
                       key={post.id}
                       className="relative rounded-md p-3 hover:bg-gray-100"
                     >
-                      <h3 className="text-sm font-medium leading-5">
+                      <h3 className="text-sm font-medium leading-5 dark:text-black">
                         {post.title}
                       </h3>
 

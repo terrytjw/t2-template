@@ -4,8 +4,8 @@ import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 type AutocompleteProps = {
   data: any;
-  selected: any;
-  setSelected: (value: any) => void;
+  selected: any; // todo: type this better
+  setSelected: (value: any) => void; // todo: type this better
 };
 const Autocomplete = ({ data, selected, setSelected }: AutocompleteProps) => {
   const [query, setQuery] = useState("");
@@ -41,6 +41,9 @@ const Autocomplete = ({ data, selected, setSelected }: AutocompleteProps) => {
           </div>
           <Transition
             as={Fragment}
+            enter="transition ease-in duration-100"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
             leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"

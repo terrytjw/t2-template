@@ -4,6 +4,7 @@ import Modal from "../components/Modal";
 import Autocomplete from "../components/Autocomplete";
 import TabGroup from "../components/TabGroup";
 import Toggle from "../components/Toggle";
+import Select from "../components/Select";
 
 const peopleData = [
   { id: 1, name: "Wade Cooper" },
@@ -107,7 +108,7 @@ const PlaygroundPage = () => {
         </div>
       </section>
       <div className="divider" />
-      <section className="p-8 pb-96">
+      <section className="p-8 pb-40">
         <div className="flex justify-center">
           <h1 className="inline-block py-1 text-xl font-bold border-b-2 border-gray-300">
             Autocomplete component
@@ -115,6 +116,21 @@ const PlaygroundPage = () => {
         </div>
         <div className="flex flex-col justify-center items-center gap-4 p-8">
           <Autocomplete
+            data={peopleData}
+            selected={personSelected}
+            setSelected={setPersonSelected}
+          />
+        </div>
+      </section>
+      <div className="divider" />
+      <section className="p-8 pb-96">
+        <div className="flex justify-center">
+          <h1 className="inline-block py-1 text-xl font-bold border-b-2 border-gray-300">
+            Select component
+          </h1>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-4 p-8">
+          <Select
             data={peopleData}
             selected={personSelected}
             setSelected={setPersonSelected}

@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import Accordion from "../components/Accordion";
 import Modal from "../components/Modal";
+import Autocomplete from "../components/Autocomplete";
 import TabGroup from "../components/TabGroup";
 import Toggle from "../components/Toggle";
+
+const peopleData = [
+  { id: 1, name: "Wade Cooper" },
+  { id: 2, name: "Arlene Mccoy" },
+  { id: 3, name: "Devon Webb" },
+  { id: 4, name: "Tom Cook" },
+  { id: 5, name: "Tanya Fox" },
+  { id: 6, name: "Hellen Schmidt" },
+];
 
 const PlaygroundPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showWord, setShowWord] = useState(false);
+  const [personSelected, setPersonSelected] = useState(peopleData[0]);
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -93,6 +104,21 @@ const PlaygroundPage = () => {
               </span>
             </p>
           </div>
+        </div>
+      </section>
+      <div className="divider" />
+      <section className="p-8 pb-96">
+        <div className="flex justify-center">
+          <h1 className="inline-block py-1 text-xl font-bold border-b-2 border-gray-300">
+            Autocomplete component
+          </h1>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-4 p-8">
+          <Autocomplete
+            data={peopleData}
+            selected={personSelected}
+            setSelected={setPersonSelected}
+          />
         </div>
       </section>
     </main>

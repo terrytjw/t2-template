@@ -108,7 +108,7 @@ const PlaygroundPage = () => {
         </div>
       </section>
       <div className="divider" />
-      <section className="p-8 pb-40">
+      <section className="p-8 pb-52">
         <div className="flex justify-center">
           <h1 className="inline-block py-1 text-xl font-bold border-b-2 border-gray-300">
             Autocomplete component
@@ -123,7 +123,7 @@ const PlaygroundPage = () => {
         </div>
       </section>
       <div className="divider" />
-      <section className="p-8 pb-96">
+      <section className="p-8 pb-52">
         <div className="flex justify-center">
           <h1 className="inline-block py-1 text-xl font-bold border-b-2 border-gray-300">
             Select component

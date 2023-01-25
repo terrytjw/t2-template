@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Navbar from "../components/Navbar";
 import { Theme, ThemeContext } from "../lib/context";
 import { useState, useEffect } from "react";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState<Theme>("light");
@@ -25,6 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <Navbar />
       <Component {...pageProps} />
+      <Footer />
     </ThemeContext.Provider>
   );
 }

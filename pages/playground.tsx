@@ -5,6 +5,7 @@ import Autocomplete from "../components/Autocomplete";
 import TabGroup from "../components/TabGroup";
 import Toggle from "../components/Toggle";
 import Select from "../components/Select";
+import Dropdown from "../components/Dropdown";
 
 const peopleData = [
   { id: 1, name: "Wade Cooper" },
@@ -156,6 +157,17 @@ const PlaygroundPage = () => {
             selected={personSelected}
             setSelected={setPersonSelected}
           />
+        </div>
+      </section>
+      <div className="divider" />
+      <section className="p-8 pb-52">
+        <div className="flex justify-center">
+          <h1 className="inline-block border-b-2 border-gray-300 py-1 text-xl font-bold">
+            Dropdown component
+          </h1>
+        </div>
+        <div className="flex flex-col items-center justify-center gap-4 p-8">
+          <Dropdown />
         </div>
       </section>
     </div>

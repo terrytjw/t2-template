@@ -20,6 +20,7 @@ const PlaygroundPage = () => {
   const [showWord, setShowWord] = useState(false);
   const [personSelected, setPersonSelected] = useState(peopleData[0]);
   const [accordionIdx, setAccordionIdx] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState(0);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
@@ -93,7 +94,18 @@ const PlaygroundPage = () => {
           </h1>
         </div>
         <div className="flex justify-center">
-          <TabGroup />
+          <TabGroup
+            tabs={["Tab 1", "Tab 2", "Tab 3", "Tab 69"]}
+            activeTab={activeTab}
+            setActiveTab={(index: number) => {
+              setActiveTab(index);
+            }}
+          >
+            {activeTab == 0 && <h1>Hi</h1>}
+            {activeTab == 1 && <h1>My</h1>}
+            {activeTab == 2 && <h1>Name</h1>}
+            {activeTab == 3 && <h1>Jeff</h1>}
+          </TabGroup>
         </div>
       </section>
       <div className="divider" />

@@ -1,36 +1,60 @@
-import React, { useEffect } from "react";
-import { Disclosure } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
+import React from "react";
+import { FaChevronUp } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
 
 type AccordionProps = {
-  label: string;
+  id: number; // for auto-closing when another accordion is open
+  idx: number | null;
+  setIdx: (idx: number | null) => void;
+  title: string;
   children: React.ReactNode;
 };
-const Accordion = ({ label, children }: AccordionProps) => {
-  const [parent, enableAnimations] = useAutoAnimate<any>(/* optional config */);
-
+const Accordion = ({ id, idx, setIdx, title, children }: AccordionProps) => {
   return (
-    <div className="w-full p-0.5">
-      <div className="mx-auto w-full max-w-md rounded-2xl p-0.5">
-        <Disclosure>
-          {({ open }) => (
-            <div ref={parent}>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-teal-100 dark:bg-teal-200 px-4 py-2 text-left text-sm font-medium text-teal-900 hover:bg-teal-200 dark:hover:bg-teal-100 focus:outline-none focus-visible:ring focus-visible:ring-teal-500 focus-visible:ring-opacity-75 transition-all">
-                <span>{label}</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? "rotate-180 transform" : ""
-                  } h-5 w-5 text-teal-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500 dark:text-gray-300 bg-gray-100 dark:bg-white/10 rounded">
-                {children}
-              </Disclosure.Panel>
-            </div>
-          )}
-        </Disclosure>
-      </div>
+    <div className="p-1">
+      <motion.header
+        className={classNames(
+          "flex items-center justify-between gap-x-4 rounded-lg bg-teal-400 p-4 text-left text-sm font-medium text-black/70 shadow-lg sm:text-base",
+          "cursor-pointer transition-all focus:outline-none"
+        )}
+        initial={false}
+        animate={{}}
+        onClick={() => setIdx(idx === id ? null : id)}
+      >
+        <div className="mr-auto flex flex-col justify-center">
+          <div className="font-semibold">{title}</div>
+        </div>
+        <FaChevronUp
+          className={classNames(idx === id ? "rotate-180 transform" : "")}
+        />
+      </motion.header>
+      <AnimatePresence initial={false}>
+        {idx === id && (
+          <motion.section
+            key="content"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: { opacity: 1, height: "auto" },
+              collapsed: {
+                opacity: 0,
+                height: 0,
+              },
+            }}
+            transition={{
+              duration: 1,
+              ease: [0.04, 0.62, 0.23, 0.98],
+            }}
+          >
+            {children}
+          </motion.section>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

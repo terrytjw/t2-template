@@ -19,37 +19,46 @@ const PlaygroundPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showWord, setShowWord] = useState(false);
   const [personSelected, setPersonSelected] = useState(peopleData[0]);
+  const [accordionIdx, setAccordionIdx] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
-      <h1 className="mb-4 p-6 bg-gray-900 dark:bg-gray-300 text-center text-3xl text-teal-300 dark:text-teal-700 font-bold">
+      <h1 className="mb-4 bg-gray-900 p-6 text-center text-3xl font-bold text-teal-300 dark:bg-gray-300 dark:text-teal-700">
         Playground
       </h1>
       <section className="p-8">
         <div className="flex justify-center">
-          <h1 className="inline-block mb-4 py-1 text-xl font-bold border-b-2 border-gray-300">
+          <h1 className="mb-4 inline-block border-b-2 border-gray-300 py-1 text-xl font-bold">
             Accordion component
           </h1>
         </div>
-        <Accordion label="What's the refund policy?">
-          If you're unhappy with your purchase for any reason, email us within
-          90 days and we'll refund you in full, no questions asked.
+        <Accordion
+          id={0}
+          idx={accordionIdx}
+          setIdx={setAccordionIdx}
+          title="Mary had a little lamb?"
+        >
+          <h1 className="rounded-sm bg-teal-100 p-8">Hello</h1>
         </Accordion>
-        <Accordion label="Mary had a little lamb. What's next?">
-          Its fleece was white as snow, and everywhere that Mary went, the lamb
-          was sure to go.
+        <Accordion
+          id={1}
+          idx={accordionIdx}
+          setIdx={setAccordionIdx}
+          title="And it was really cute?"
+        >
+          <h1 className="rounded-sm bg-teal-100 p-8">World</h1>
         </Accordion>
       </section>
       <div className="divider" />
       <section className="p-8">
         <div className="flex justify-center">
-          <h1 className="inline-block mb-4 py-1 text-xl font-bold border-b-2 border-gray-300">
+          <h1 className="mb-4 inline-block border-b-2 border-gray-300 py-1 text-xl font-bold">
             Modal component
           </h1>
         </div>
         <div className="flex justify-center p-6">
           <button
-            className="btn btn-outline"
+            className="btn-outline btn"
             onClick={() => setIsModalOpen(true)}
           >
             Open modal
@@ -79,7 +88,7 @@ const PlaygroundPage = () => {
       <div className="divider" />
       <section className="p-8">
         <div className="flex justify-center">
-          <h1 className="inline-block py-1 text-xl font-bold border-b-2 border-gray-300">
+          <h1 className="inline-block border-b-2 border-gray-300 py-1 text-xl font-bold">
             Tab group component
           </h1>
         </div>
@@ -90,17 +99,17 @@ const PlaygroundPage = () => {
       <div className="divider" />
       <section className="p-8">
         <div className="flex justify-center">
-          <h1 className="inline-block py-1 text-xl font-bold border-b-2 border-gray-300">
+          <h1 className="inline-block border-b-2 border-gray-300 py-1 text-xl font-bold">
             Toggle component
           </h1>
         </div>
-        <div className="flex flex-col justify-center items-center gap-4 p-8">
+        <div className="flex flex-col items-center justify-center gap-4 p-8">
           <Toggle isChecked={showWord} setIsChecked={setShowWord} />
 
           <div className="inline-block h-10">
             <p className="">
               Word of the day:{" "}
-              <span className="inline-block p-2 w-32 bg-orange-200 text-center font-bold text-black/80 text- rounded">
+              <span className="text- inline-block w-32 rounded bg-orange-200 p-2 text-center font-bold text-black/80">
                 {showWord ? "Hello World" : "?????"}
               </span>
             </p>
@@ -110,11 +119,11 @@ const PlaygroundPage = () => {
       <div className="divider" />
       <section className="p-8 pb-52">
         <div className="flex justify-center">
-          <h1 className="inline-block py-1 text-xl font-bold border-b-2 border-gray-300">
+          <h1 className="inline-block border-b-2 border-gray-300 py-1 text-xl font-bold">
             Autocomplete component
           </h1>
         </div>
-        <div className="flex flex-col justify-center items-center gap-4 p-8">
+        <div className="flex flex-col items-center justify-center gap-4 p-8">
           <Autocomplete
             data={peopleData}
             selected={personSelected}
@@ -125,11 +134,11 @@ const PlaygroundPage = () => {
       <div className="divider" />
       <section className="p-8 pb-52">
         <div className="flex justify-center">
-          <h1 className="inline-block py-1 text-xl font-bold border-b-2 border-gray-300">
+          <h1 className="inline-block border-b-2 border-gray-300 py-1 text-xl font-bold">
             Select component
           </h1>
         </div>
-        <div className="flex flex-col justify-center items-center gap-4 p-8">
+        <div className="flex flex-col items-center justify-center gap-4 p-8">
           <Select
             data={peopleData}
             selected={personSelected}

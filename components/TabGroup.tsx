@@ -43,7 +43,7 @@ const TabGroup = ({
                   "focus:outline-none",
                   selected
                     ? "bg-gray-600 text-white shadow"
-                    : "hover:text-gray-500",
+                    : "text-gray-400 hover:text-gray-500",
                   "transition-all"
                 )
               }
@@ -65,6 +65,7 @@ const TabGroup = ({
                 variants={animatedVariant}
                 initial="hidden"
                 animate="visible"
+                className="dark:text-black"
               >
                 {children}
               </motion.div>

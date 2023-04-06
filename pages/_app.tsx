@@ -10,7 +10,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div>
+      {/* The className={theme} below is for tailwind CSS dark: prefix to work */}
+      <div className={theme}>
         <Navbar />
         <Component {...pageProps} />
         <Footer />

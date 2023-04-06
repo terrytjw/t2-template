@@ -21,5 +21,6 @@ module.exports = {
     utils: true,
     logs: false,
     rtl: false,
+    darkTheme: "business",
   },
 };

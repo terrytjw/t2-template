@@ -12,8 +12,8 @@ const HomePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col justify-center items-center h-screen tracking-widest">
-        <h1 className="text-2xl font-bold animate-pulse">Let's build. 🚀</h1>
+      <main className="flex h-screen flex-col items-center justify-center tracking-widest">
+        <h1 className="animate-pulse text-3xl font-bold">Let's build. 🚀</h1>
         <CustomLink
           href="https://github.com/terrytjw/t2-template"
           className="flex gap-4 p-8"

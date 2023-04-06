@@ -2,7 +2,7 @@ import { Fragment, useContext, useEffect, useState } from "react";
 import { Switch } from "@headlessui/react";
 import { themeChange } from "theme-change";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
-import { ThemeContext } from "../../lib/context";
+import { ThemeContext } from "../../utils/context";
 
 const DarkModeToggle = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);

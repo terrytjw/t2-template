@@ -6,7 +6,7 @@ import { ThemeContext } from "../../utils/context";
 
 const DarkModeToggle = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const darkModeEnabled = theme === "dark";
+  const darkModeEnabled = theme === "business";
 
   useEffect(() => {
     themeChange(false);

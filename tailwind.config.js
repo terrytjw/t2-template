@@ -13,4 +13,13 @@ module.exports = {
     },
   },
   plugins: [require("daisyui")],
+  // daisyUI config
+  daisyui: {
+    styled: true,
+    themes: ["lofi", "business"],
+    base: true,
+    utils: true,
+    logs: false,
+    rtl: false,
+  },
 };

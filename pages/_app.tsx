@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { ThemeContext } from "../utils/context";
 import { useTheme } from "../lib/hooks/useTheme";
 import Layout from "../components/Layout";
+import Loading from "../components/Loading";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [theme, toggleTheme] = useTheme();

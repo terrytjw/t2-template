@@ -19,7 +19,7 @@ const DarkModeToggle = () => {
         {({ checked }) => (
           <button
             className={`${
-              checked ? "bg-gray-600" : "bg-gray-200"
+              checked ? "bg-gray-600" : "bg-gray-300"
             } relative inline-flex h-6 w-11 items-center rounded-full`}
             data-set-theme={darkModeEnabled ? "lofi" : "business"}
             data-act-class="ACTIVECLASS"

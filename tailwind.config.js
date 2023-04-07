@@ -12,7 +12,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("tailwindcss-debug-screens")],
   // daisyUI config
   daisyui: {
     styled: true,

@@ -26,7 +26,7 @@ const PlaygroundPage = () => {
   return (
     <main>
       <div className="mb-4 p-6 text-center text-3xl font-bold">
-        <h1 className="inline-block rounded-lg border border-gray-500 py-2 px-4">
+        <h1 className="inline-block rounded-lg border border-gray-500 py-2 px-4 dark:text-red-400">
           Playground
         </h1>
       </div>

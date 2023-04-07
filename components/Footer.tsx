@@ -4,8 +4,8 @@ import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer place-items-center p-6 bg-neutral text-neutral-content">
-      <div className="items-center grid-flow-col">
+    <footer className="footer place-items-center bg-neutral p-6 text-neutral-content">
+      <div className="grid-flow-col items-center">
         <p>
           Maintained with ❤️ by
           <CustomLink href="https://github.com/terrytjw" className="">

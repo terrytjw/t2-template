@@ -6,6 +6,7 @@ import { RiLoginCircleLine, RiLogoutCircleLine } from "react-icons/ri";
 import { IoMdPerson } from "react-icons/io";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { FaTools, FaHome } from "react-icons/fa";
+import { IoRocketSharp } from "react-icons/io5";
 import CustomLink from "./CustomLink";
 import DarkModeToggle from "./Toggle/DarkModeToggle";
 
@@ -35,7 +36,7 @@ const Navbar = ({ children }: NavbarProps) => {
       />
       <div className="drawer-content flex flex-col">
         {/* <!-- Navbar --> */}
-        <div className="navbar w-full bg-base-300">
+        <div className="navbar fixed z-50 w-full bg-base-100 shadow-md">
           <div className="flex-none lg:hidden">
             <label htmlFor="drawer-toggle" className="btn-ghost btn-square btn">
               <HiOutlineMenuAlt2 className="h-6 w-6" />
@@ -46,7 +47,8 @@ const Navbar = ({ children }: NavbarProps) => {
               href="/"
               className="text-xl font-extrabold tracking-tighter"
             >
-              T2 Template 🚀
+              T2 Template
+              <IoRocketSharp className="ml-1" />
             </CustomLink>
           </div>
           <div className="hidden lg:flex">
@@ -80,6 +82,8 @@ const Navbar = ({ children }: NavbarProps) => {
           </div>
         </div>
 
+        <div className="mt-12" />
+
         {/* <!-- Page content here --> */}
         {children}
       </div>
@@ -88,13 +92,13 @@ const Navbar = ({ children }: NavbarProps) => {
         <ul className="menu w-80 bg-base-200 p-4 font-medium text-gray-500 dark:text-gray-100">
           {/* <!-- Sidebar content here --> */}
           <li>
-            <Link href="/" className="">
+            <Link href="/" className="active:bg-white/0">
               <FaHome />
               Home
             </Link>
           </li>
           <li>
-            <Link href="/playground" className="">
+            <Link href="/playground" className="active:bg-white/0">
               <FaTools />
               Playground
             </Link>

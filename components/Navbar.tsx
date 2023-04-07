@@ -5,8 +5,9 @@ import toast from "react-hot-toast";
 import { RiLoginCircleLine, RiLogoutCircleLine } from "react-icons/ri";
 import { IoMdPerson } from "react-icons/io";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
-import { FaTools, FaHome } from "react-icons/fa";
+import { FaHome, FaDatabase, FaTv } from "react-icons/fa";
 import { IoRocketSharp } from "react-icons/io5";
+
 import CustomLink from "./CustomLink";
 import DarkModeToggle from "./Toggle/DarkModeToggle";
 
@@ -52,11 +53,11 @@ const Navbar = ({ children }: NavbarProps) => {
             </CustomLink>
           </div>
           <div className="hidden lg:flex">
-            <CustomLink href="/" className="mx-2 font-semibold">
-              Home
+            <CustomLink href="/fe-playground" className="mx-2 font-semibold">
+              FE Playground
             </CustomLink>
-            <CustomLink href="/playground" className="mx-2 font-semibold">
-              Playground
+            <CustomLink href="/be-playground" className="mx-2 font-semibold">
+              BE Playground
             </CustomLink>
             <div className="mx-4">
               <DarkModeToggle />
@@ -82,8 +83,6 @@ const Navbar = ({ children }: NavbarProps) => {
           </div>
         </div>
 
-        <div className="mt-12" />
-
         {/* <!-- Page content here --> */}
         {children}
       </div>
@@ -98,9 +97,15 @@ const Navbar = ({ children }: NavbarProps) => {
             </Link>
           </li>
           <li>
-            <Link href="/playground" className="active:bg-white/0">
-              <FaTools />
-              Playground
+            <Link href="/fe-playground" className="active:bg-white/0">
+              <FaTv />
+              FE Playground
+            </Link>
+          </li>
+          <li>
+            <Link href="/be-playground" className="active:bg-white/0">
+              <FaDatabase />
+              BE Playground
             </Link>
           </li>
 

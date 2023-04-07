@@ -23,7 +23,7 @@ const Layout = ({ theme, children }: LayoutProps) => {
     >
       <Navbar>
         {/* style in the main tag for page standardizations across app */}
-        <main className="p-4">{children}</main>
+        <main className="mt-16 p-6">{children}</main>
         <Footer />
         <Toaster />
       </Navbar>

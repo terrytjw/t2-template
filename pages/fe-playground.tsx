@@ -16,7 +16,7 @@ const peopleData = [
   { id: 6, name: "Hellen Schmidt" },
 ];
 
-const PlaygroundPage = () => {
+const FEPlaygroundPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showWord, setShowWord] = useState(false);
   const [personSelected, setPersonSelected] = useState(peopleData[0]);
@@ -27,7 +27,7 @@ const PlaygroundPage = () => {
     <main>
       <div className="mb-4 p-6 text-center text-3xl font-bold">
         <h1 className="inline-block rounded-lg border border-gray-500 py-2 px-4 dark:text-red-400">
-          Playground
+          FE Playground
         </h1>
       </div>
       <section className="p-8">
@@ -68,7 +68,11 @@ const PlaygroundPage = () => {
             Open modal
           </button>
         </div>
-        <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
+        <Modal
+          className="max-w-md"
+          isOpen={isModalOpen}
+          setIsOpen={setIsModalOpen}
+        >
           <h1 className="text-lg font-medium leading-6 text-gray-900">
             Payment successful
           </h1>
@@ -176,4 +180,4 @@ const PlaygroundPage = () => {
   );
 };
 
-export default PlaygroundPage;
+export default FEPlaygroundPage;

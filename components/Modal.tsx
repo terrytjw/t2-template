@@ -1,12 +1,17 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
+
 type ModalProps = {
+  className: string; // made compulsory for dev to configure modal size
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   children?: React.ReactNode;
 };
-const Modal = ({ isOpen, setIsOpen, children }: ModalProps) => {
+const Modal = ({ className, isOpen, setIsOpen, children }: ModalProps) => {
   function closeModal() {
     setIsOpen(false);
   }
@@ -38,7 +43,12 @@ const Modal = ({ isOpen, setIsOpen, children }: ModalProps) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-50"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel
+                  className={classNames(
+                    "w-full transform rounded-2xl bg-base-100 p-6 text-left align-middle shadow-xl transition-all",
+                    className ?? ""
+                  )}
+                >
                   {children}
                 </Dialog.Panel>
               </Transition.Child>

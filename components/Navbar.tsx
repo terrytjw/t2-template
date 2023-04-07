@@ -61,7 +61,7 @@ const Navbar = ({ children }: NavbarProps) => {
             <div className="mx-4">
               <DarkModeToggle />
             </div>
-            <div className="dropdown-end dropdown">
+            <div className="dropdown-end dropdown mr-6">
               <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
                 <div className="w-10 rounded-full">
                   <img src="https://placeimg.com/80/80/people" />

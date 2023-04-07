@@ -89,7 +89,7 @@ const Navbar = ({ children }: NavbarProps) => {
       </div>
       <div className="drawer-side">
         <label htmlFor="drawer-toggle" className="drawer-overlay"></label>
-        <ul className="menu w-80 bg-base-200 p-4 font-medium text-gray-500 dark:text-gray-100">
+        <ul className="menu w-80 bg-base-100 p-4 font-medium text-gray-500 dark:text-gray-100">
           {/* <!-- Sidebar content here --> */}
           <li>
             <Link href="/" className="active:bg-white/0">

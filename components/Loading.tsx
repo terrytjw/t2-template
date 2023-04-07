@@ -15,7 +15,7 @@ const Loading = ({ fullScreen }: LoadingProps) => {
       }`}
     >
       <div className="animate-bounce">
-        <h1 className="animate-pulse text-2xl font-semibold">Loading</h1>
+        <h1 className="animate-pulse text-xl font-semibold">Loading</h1>
       </div>
       <div className="mt-2 flex items-center justify-center space-x-2">
         <PulseLoader size={10} color="#CFCFCF" speedMultiplier={0.8} />

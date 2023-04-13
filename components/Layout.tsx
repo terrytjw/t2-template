@@ -18,7 +18,7 @@ const Layout = ({ theme, children }: LayoutProps) => {
     <div
       className={classNames(
         themeMode,
-        process.env.NEXT_PUBLIC_ENV === "dev" ? "debug-screens" : ""
+        process.env.NEXT_PUBLIC_DEBUG_SCREENS === "true" ? "debug-screens" : ""
       )}
     >
       <Navbar>

@@ -1,21 +1,22 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import Image from "next/image";
 import toast from "react-hot-toast";
 import { RiLoginCircleLine, RiLogoutCircleLine } from "react-icons/ri";
 import { IoMdPerson } from "react-icons/io";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { FaHome, FaDatabase, FaTv } from "react-icons/fa";
-import { IoRocketSharp } from "react-icons/io5";
-
 import CustomLink from "./CustomLink";
 import DarkModeToggle from "./Toggle/DarkModeToggle";
+import { ThemeContext } from "../utils/context";
 
 type NavbarProps = {
   children?: React.ReactNode;
 };
 const Navbar = ({ children }: NavbarProps) => {
   const router = useRouter();
+  const { theme } = useContext(ThemeContext);
   const drawerToggleRef = useRef<HTMLInputElement>(null);
 
   // to automatically close daisyUI side drawer when route changes
@@ -49,7 +50,23 @@ const Navbar = ({ children }: NavbarProps) => {
               className="text-xl font-extrabold tracking-tighter"
             >
               T2 Template
-              <IoRocketSharp className="ml-1" />
+              <span className="ml-1.5">
+                {theme === "business" ? (
+                  <Image
+                    src="/svgs/aethero-logo-white.svg"
+                    alt="aethero logo"
+                    width={20}
+                    height={20}
+                  />
+                ) : (
+                  <Image
+                    src="/svgs/aethero-logo-black.svg"
+                    alt="aethero logo"
+                    width={20}
+                    height={20}
+                  />
+                )}
+              </span>
             </CustomLink>
           </div>
           <div className="hidden lg:flex">

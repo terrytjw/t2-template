@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -71,5 +71,19 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("daisyui"),
+    require("tailwindcss-debug-screens"),
+  ],
+  // daisyUI config
+  daisyui: {
+    styled: true,
+    themes: ["lofi", "business"],
+    base: true,
+    utils: true,
+    logs: false,
+    rtl: false,
+    darkTheme: "business",
+  },
 };

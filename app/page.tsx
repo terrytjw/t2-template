@@ -2,8 +2,12 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import CustomLink from "@/components/CustomLink";
 import { FaGithub } from "react-icons/fa";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
-export default function Home() {
+const HomePage = async () => {
+  const session = await getServerSession(authOptions);
+
   return (
     <main className="flex h-screen flex-col items-center justify-center tracking-widest">
       <h1 className="animate-pulse text-3xl font-bold">Let's build. 🚀</h1>
@@ -27,4 +31,6 @@ export default function Home() {
       </RadioGroup>
     </main>
   );
-}
+};
+
+export default HomePage;

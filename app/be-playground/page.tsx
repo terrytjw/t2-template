@@ -1,6 +1,6 @@
 import React from "react";
 
-const BEPlayGround = () => {
+const BEPlayGround = async () => {
   return <div className="font-bold">BEPlayGround</div>;
 };
 

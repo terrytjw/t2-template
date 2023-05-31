@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter, Montserrat } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import { cn } from "@/utils/cn";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -26,7 +27,9 @@ export default function RootLayout({
             : ""
         )}
       >
-        <Navbar>{children}</Navbar>
+        <Suspense fallback={<p>nav loading...</p>}>
+          <Navbar>{children}</Navbar>
+        </Suspense>
       </body>
     </html>
   );

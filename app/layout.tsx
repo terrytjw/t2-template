@@ -3,6 +3,7 @@ import { Inter, Montserrat } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import { cn } from "@/utils/cn";
 import { Suspense } from "react";
+import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -27,9 +28,11 @@ export default function RootLayout({
             : ""
         )}
       >
-        <Suspense fallback={<p>nav loading...</p>}>
-          <Navbar>{children}</Navbar>
-        </Suspense>
+        <Providers>
+          <Suspense fallback={<p>nav loading...</p>}>
+            <Navbar>{children}</Navbar>
+          </Suspense>
+        </Providers>
       </body>
     </html>
   );

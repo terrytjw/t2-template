@@ -14,6 +14,8 @@ import DarkModeToggle from "./Toggle/DarkModeToggle";
 import { ThemeContext } from "../utils/context";
 import { useTheme } from "@/lib/hooks";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
 type NavbarProps = {
   children?: React.ReactNode;
@@ -33,6 +35,10 @@ const Navbar = ({ children }: NavbarProps) => {
 
   const [theme, toggleTheme] = useTheme();
   const themeMode = theme === "business" ? "dark" : "light"; // for tailwind CSS dark: prefix to work
+
+  const { data: session, status } = useSession();
+
+  console.log("session -> ", session);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -96,36 +102,62 @@ const Navbar = ({ children }: NavbarProps) => {
                 <div className="mx-4">
                   <DarkModeToggle />
                 </div>
-                <div className="dropdown-end dropdown mr-6">
-                  <label
-                    tabIndex={0}
-                    className="btn-ghost btn-circle avatar btn"
-                  >
-                    {/* <div className="w-10 rounded-full">
+                {session ? (
+                  <div className="dropdown-end dropdown mr-6">
+                    <label
+                      tabIndex={0}
+                      className="btn-ghost btn-circle avatar btn"
+                    >
+                      {/* <div className="w-10 rounded-full">
                       <img src="https://placeimg.com/80/80/people" />
                     </div> */}
-                    <Avatar>
-                      <AvatarImage
-                        src="https://placeimg.com/80/80/people"
-                        alt="profile"
-                      />
-                      <AvatarFallback>...</AvatarFallback>
-                    </Avatar>
-                  </label>
-                  <ul
-                    tabIndex={0}
-                    className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
-                  >
-                    <li>
-                      <button onClick={() => alert("Profile page")}>
-                        Account
-                      </button>
-                    </li>
-                    <li>
-                      <button onClick={() => alert("Logout")}>Logout</button>
-                    </li>
-                  </ul>
-                </div>
+                      <Avatar>
+                        <AvatarImage
+                          src="https://placeimg.com/80/80/people"
+                          alt="profile"
+                        />
+                        <AvatarFallback>...</AvatarFallback>
+                      </Avatar>
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
+                    >
+                      <li>
+                        <button onClick={() => alert("Profile page")}>
+                          Account
+                        </button>
+                      </li>
+                      <li>
+                        <button onClick={() => signOut()}>Logout</button>
+                      </li>
+                    </ul>
+                  </div>
+                ) : (
+                  <div className="dropdown-end dropdown mr-6">
+                    <label
+                      tabIndex={0}
+                      className="btn-ghost btn-circle avatar btn"
+                    >
+                      {/* <div className="w-10 rounded-full">
+                      <img src="https://placeimg.com/80/80/people" />
+                    </div> */}
+                      <Avatar>
+                        <AvatarFallback>
+                          <IoMdPerson />
+                        </AvatarFallback>
+                      </Avatar>
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
+                    >
+                      <li>
+                        <a href="/api/auth/signin">Login</a>
+                      </li>
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -161,57 +193,65 @@ const Navbar = ({ children }: NavbarProps) => {
               <div className="ml-2 pb-4">
                 <DarkModeToggle />
               </div>
-              <Link
-                className="ml-2 flex items-center gap-x-2 py-4"
-                href="#"
-                onClick={() =>
-                  toast("Logged in", {
-                    icon: "✅",
-                    style: {
-                      borderRadius: "1rem",
-                      background: "#333",
-                      color: "#fff",
-                    },
-                  })
-                }
-              >
-                <IoMdPerson />
-                Account
-              </Link>
-              <Link
-                className="ml-2 flex items-center gap-x-2 py-4"
-                href="#"
-                onClick={() =>
-                  toast("Logged in", {
-                    icon: "✅",
-                    style: {
-                      borderRadius: "1rem",
-                      background: "#333",
-                      color: "#fff",
-                    },
-                  })
-                }
-              >
-                <RiLoginCircleLine />
-                Login
-              </Link>
-              <Link
-                className="ml-2 flex items-center gap-x-2 py-4"
-                href="#"
-                onClick={() =>
-                  toast("Logged out", {
-                    icon: "✅",
-                    style: {
-                      borderRadius: "1rem",
-                      background: "#333",
-                      color: "#fff",
-                    },
-                  })
-                }
-              >
-                <RiLogoutCircleLine />
-                Logout
-              </Link>
+
+              {session ? (
+                <>
+                  <Link
+                    className="ml-2 flex items-center gap-x-2 py-4"
+                    href="#"
+                    onClick={() =>
+                      toast("Logged in", {
+                        icon: "✅",
+                        style: {
+                          borderRadius: "1rem",
+                          background: "#333",
+                          color: "#fff",
+                        },
+                      })
+                    }
+                  >
+                    <IoMdPerson />
+                    {session?.user?.name}
+                  </Link>
+                  <Link
+                    className="ml-2 flex items-center gap-x-2 py-4"
+                    href=""
+                    onClick={() =>
+                      signOut().then(() =>
+                        toast("Logged out", {
+                          icon: "✅",
+                          style: {
+                            borderRadius: "1rem",
+                            background: "#333",
+                            color: "#fff",
+                          },
+                        })
+                      )
+                    }
+                  >
+                    <RiLogoutCircleLine />
+                    Logout
+                  </Link>
+                </>
+              ) : (
+                <Link
+                  className="ml-2 flex items-center gap-x-2 py-4"
+                  href="/api/auth/signin"
+                  onClick={() =>
+                    toast("Logged in", {
+                      icon: "✅",
+                      style: {
+                        borderRadius: "1rem",
+                        background: "#333",
+                        color: "#fff",
+                      },
+                    })
+                  }
+                >
+                  <RiLoginCircleLine />
+                  Login
+                </Link>
+              )}
             </ul>
           </div>
         </div>

@@ -13,6 +13,7 @@ import CustomLink from "./CustomLink";
 import DarkModeToggle from "./Toggle/DarkModeToggle";
 import { ThemeContext } from "../utils/context";
 import { useTheme } from "@/lib/hooks";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 type NavbarProps = {
   children?: React.ReactNode;
@@ -59,7 +60,7 @@ const Navbar = ({ children }: NavbarProps) => {
                   href="/"
                   className="text-xl font-extrabold tracking-tighter"
                 >
-                  T2 Template
+                  T2 Template 2.0
                   <span className="ml-1.5">
                     {theme === "business" ? (
                       <Image
@@ -100,9 +101,16 @@ const Navbar = ({ children }: NavbarProps) => {
                     tabIndex={0}
                     className="btn-ghost btn-circle avatar btn"
                   >
-                    <div className="w-10 rounded-full">
+                    {/* <div className="w-10 rounded-full">
                       <img src="https://placeimg.com/80/80/people" />
-                    </div>
+                    </div> */}
+                    <Avatar>
+                      <AvatarImage
+                        src="https://placeimg.com/80/80/people"
+                        alt="profile"
+                      />
+                      <AvatarFallback>...</AvatarFallback>
+                    </Avatar>
                   </label>
                   <ul
                     tabIndex={0}

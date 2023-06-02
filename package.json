@@ -43,6 +43,8 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "0.2.3",
     "prisma": "^4.15.0",
     "tailwindcss-debug-screens": "^2.2.1"
   }
